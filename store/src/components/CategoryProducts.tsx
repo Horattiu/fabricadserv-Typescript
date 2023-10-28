@@ -23,7 +23,11 @@ function CategoryProducts() {
         <div className="category-container">
           <div className="products">
             {categoryProducts.map((product) => (
-              <ProductCard product={product} key={product.id} />
+              <ProductCard
+                key={product.id}
+                product={product}
+                model={product.model}
+              />
             ))}
           </div>
         </div>
