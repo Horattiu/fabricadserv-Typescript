@@ -1,0 +1,260 @@
+.navbar {
+    background-color: rgb(245, 245, 245);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding-left: 14rem;
+    padding-right: 14rem;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+  }
+  .navbar-container {
+    align-items: center;
+    display: flex;
+    gap: 4rem;
+    margin-bottom: 0;
+    justify-content: center;
+    justify-items: center;
+  }
+  
+  .nav-logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: rgb(250, 78, 78);
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .cart-icon {
+    vertical-align: auto;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+  }
+  
+  nav ul li a::after {
+    /* color: #212529; */
+  }
+  
+  ul {
+    list-style-type: none;
+  }
+  
+  .work {
+    font-weight: 600;
+    color: black;
+    cursor: pointer;
+    cursor: pointer;
+    align-self: center;
+    text-decoration: none;
+  }
+  
+  .work:hover {
+    color: #ff5353;
+  }
+  
+  .contact a,
+  .catalogue a {
+    text-align: center;
+    font-weight: 600;
+    color: rgb(0, 0, 0);
+  }
+  
+  .contact a:hover {
+    color: #ff5353;
+  }
+  .catalogue a:hover {
+    color: #ff5353;
+  }
+  .about {
+    color: black;
+    font-weight: 600;
+    color: #212529;
+    cursor: pointer;
+    align-self: center;
+  }
+  
+  .about:hover {
+    color: #535bf2;
+  }
+  .navbar-button {
+    padding: 0.4rem 1rem 0.4rem 1rem;
+    cursor: pointer;
+    background-color: #a4b2b3d2;
+    border: none;
+    border-radius: 5px;
+    color: #212529;
+    font-size: 1rem;
+  }
+  .navbar-button:hover {
+    background-color: #f05757;
+  }
+  
+  .modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 54rem;
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .modal-title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .modal-close {
+    cursor: pointer;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .modal-close:hover {
+    color: #ff0000;
+  }
+  
+  .modal-body {
+    margin-top: 1rem;
+    text-align: center;
+  }
+  
+  .modal-button {
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .total {
+    padding-bottom: 2rem;
+  }
+  .modal-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .cart-product {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .cart-product-name {
+    font-weight: bold;
+  }
+  
+  .cart-product-quantity {
+    margin-left: 10px;
+    font-weight: bold;
+  }
+  
+  .cart-product-remove {
+    cursor: pointer;
+    font-size: 18px;
+    color: #ff0000;
+    margin-left: 10px;
+  }
+  
+  .cart-product-remove:hover {
+    color: #c10000;
+  }
+  
+  .menu-icon {
+    position: absolute;
+    right: 2rem;
+  }
+  .menu {
+    display: none;
+    cursor: pointer;
+    color: #212529;
+    font-size: 2.4rem;
+    border: none;
+    background-color: rgba(245, 222, 179, 0);
+  }
+  
+  .menu-close {
+    color: #212529;
+    cursor: pointer;
+    border: none;
+    background-color: rgba(245, 222, 179, 0);
+    font-size: 4rem;
+  }
+  .empty {
+    width: 8rem;
+  }
+  .hrrr {
+    margin: 1rem;
+    background-color: #8f8f8f56;
+  }
+  
+  @media (max-width: 74rem) {
+    .navbar {
+      padding-left: 1.4rem;
+      padding-right: 1.4rem;
+    }
+    .navbar-container {
+      display: none;
+    }
+  
+    .nav-links-mobile {
+      position: fixed;
+      top: 4rem;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 5rem;
+      backdrop-filter: blur(20px);
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+      background-color: rgb(255, 255, 255);
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .menu {
+      display: block;
+    }
+  
+    .total {
+      padding-bottom: 0.8rem;
+    }
+    .hr {
+      margin: 0.6rem;
+    }
+  
+    .items {
+      padding-bottom: 0.4rem;
+    }
+  }
+  
