@@ -1,10 +1,8 @@
+require("dotenv").config();
 express = require("express");
 const cors = require("cors");
-require("dotenv").config();
 
-const stripe = require("stripe")(
-  "sk_test_51NQRqrKeASpJmZ80u3e3HFZu3wvjH9kPyTIJyaXWEOJj4VdE0W2U8rKGUn3PWhUMtSWAAJGiAkhu62M2VaaXknmZ00K54CuD0x"
-);
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 const app = express();
 
@@ -42,8 +40,8 @@ app.post("/checkout", async (req, res) => {
   const session = await stripe.checkout.sessions.create({
     line_items: lineItems,
     mode: "payment",
-    success_url: "http://localhost:4000/success", 
-    cancel_url: "http://localhost:4000/cancel", 
+    success_url: "http://localhost:4000/success",
+    cancel_url: "http://localhost:4000/cancel",
     shipping_address_collection: {
       allowed_countries: ["US", "CA", "GB", "DE", "RO"],
     },
@@ -55,7 +53,7 @@ app.post("/checkout", async (req, res) => {
   );
 });
 
-const port = 4000; 
+const port = 4000;
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}!`);

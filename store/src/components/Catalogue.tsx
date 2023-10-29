@@ -25,7 +25,11 @@ function Category() {
   //   };
   return (
     <>
-      <h1 id="catalogue" ref={catalogueRef} className="catalogue-title">
+      <h1
+        id="catalogue"
+        ref={catalogueRef}
+        className="catalogue-title text-3xl font-sans font-normal tracking-tight flex justify-center pt-10 text-gray-800 "
+      >
         Catalogue
       </h1>
       <div className="page-container">

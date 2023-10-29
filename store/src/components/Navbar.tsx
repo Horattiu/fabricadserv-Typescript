@@ -108,7 +108,7 @@ function NavbarComponent() {
 
   return (
     <>
-      <nav className="navbar">
+      <nav className="navbar text-sm ">
         <Link to="/" className="nav-logo">
           fabricad
         </Link>
@@ -129,7 +129,10 @@ function NavbarComponent() {
               ABOUT
             </Link>
           </li>
-          <div className="navbar-button" onClick={handleShow}>
+          <div
+            className="navbar-button flex text-gray-800 text-sm items-center gap-1 rounded-sm bg-gray-300 "
+            onClick={handleShow}
+          >
             <LuShoppingCart className="cart-icon" /> ({productsCount}) cart
           </div>
         </ul>
@@ -175,8 +178,12 @@ function NavbarComponent() {
                 </>
               ) : (
                 <div>
-                  <h1>There are no items in your cart!</h1>
-                  <img className="empty" src="/Gallery/empty.png" alt="" />
+                  <h1>cart empty </h1>
+                  <img
+                    className="empty mx-auto"
+                    src="/Gallery/empty.png"
+                    alt=""
+                  />
                 </div>
               )}
             </div>

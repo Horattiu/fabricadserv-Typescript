@@ -7,6 +7,8 @@ import About from "./components/About";
 import ProductDetails from "./components/ProductDetails";
 import Cancel from "./components/pages/Cancel";
 import Success from "./components/pages/Success";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
           element={<ProductDetails />}
         />
       </Routes>
+      <ToastContainer autoClose={2000} /> {/* 3000ms = 3 seconds */}
     </CartProvider>
   );
 }

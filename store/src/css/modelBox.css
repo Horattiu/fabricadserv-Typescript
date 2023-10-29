@@ -1,15 +1,12 @@
 .model-container {
-    cursor: pointer;
-    background-color: rgb(230, 230, 230);
-    /* border: 1px solid rgb(201, 201, 201); */
-    width: 100%;
-    max-width: 36rem;
-    height: 30rem;
-    margin-bottom: 3rem;
-  }
-  
-  .model-box {
-    /* padding-left: 9rem; */
-    /* background-color: red; */
-  }
-  
+  position: relative;
+  object-fit: contain;
+  cursor: pointer;
+  background-color: rgb(236, 236, 236);
+  /* border: 1px solid rgb(201, 201, 201); */
+  /* width: 100%; */
+  max-width: 50rem;
+  height: 40rem;
+  margin-bottom: 3rem;
+  border-radius: 10px;
+}

@@ -1,12 +1,12 @@
 import "../css/about.css";
-import Navbar from "./Navbar"; 
+import Navbar from "./Navbar";
 
 function About() {
   return (
     <>
       <Navbar />
       <div className="about-container">
-        <h1>about us</h1>
+        <h1 className="text-2xl font-medium">about us</h1>
 
         <div>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar,

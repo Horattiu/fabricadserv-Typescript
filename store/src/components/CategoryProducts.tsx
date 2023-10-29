@@ -3,7 +3,6 @@ import { productsArray } from "../ProductsStore";
 import ProductCard from "./ProductCard";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import "../css/category.css";
 
 function CategoryProducts() {
   const { category } = useParams();
@@ -16,19 +15,22 @@ function CategoryProducts() {
   return (
     <>
       <Navbar />
-      <div>
-        <div className="category-title">
-          <h2> {category} </h2>
-        </div>
-        <div className="category-container">
-          <div className="products">
-            {categoryProducts.map((product) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                model={product.model}
-              />
-            ))}
+      <div className="bg-gray-100 lg:max-w-5xl rounded-sm  lg:mx-auto flex flex-col p-6 m-8  ">
+        <div className="flex flex-col items-center sm:items-start">
+          <div className=" ">
+            <h2 className="text-3xl font-normal text-slate-700 ">{category}</h2>
+            <hr className="pb-6 mt-3 border-t border-gray-300 w-full" />
+          </div>
+          <div className="flex items-center ">
+            <div className=" flex  lg:flex-row md:flex-row gap-8 flex-col  ">
+              {categoryProducts.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  // model={product.model}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>

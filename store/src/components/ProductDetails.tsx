@@ -7,7 +7,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import CustomModal from "./CustomModal";
 import ImageStack from "./ImageStack";
-import "../css/productDetails.css";
+// import "../css/productDetails.css";
 
 interface Product {
   id: string;
@@ -16,14 +16,13 @@ interface Product {
   moreImages: string[];
   price: number;
   size: string;
-  model: string; // Add model property
+  model: string;
   texturePath: string; // Add texturePath property
 }
 
 interface RouteParams {
   productId: string;
   [key: string]: string | undefined;
-
 }
 
 function ProductDetails() {
@@ -78,67 +77,87 @@ function ProductDetails() {
   return (
     <>
       <Navbar />
-      <div className="details-container">
+      <div className="flex flex-col gap-8 justify-center pt-10 text-gray-700 max-w-7xl mx-auto p-10 sm:flex-row  ">
         <ImageStack images={[product.imageUrl, ...product.moreImages]} />
 
-        <div className="product-details">
-          <h2 className="title">{product.title}</h2>
+        <div className="w-80 rounded-md  bg-gray-200 md:mx-0 flex flex-col justify-center iems-center mx-auto p-10 md:p-0 sm:p-0  ">
+          <div className=" w-60 mx-auto ">
+            <h2 className="text-3xl  font-normal ">{product.title}</h2>
+            <hr className="w-14 mb-2 mt-2 border-t border-gray-400" />
 
-          <div className="material-icons">
-            <img
-              className={`color ${selectedColor === "oak" ? "selected" : ""}`}
-              src="/icons/variant.jpg"
-              alt=""
-              onClick={() => handleColorSelection("normal")}
-            />
-            <img
-              className={`color ${
-                selectedColor === "red oak" ? "selected" : ""
-              }`}
-              src="/icons/variant2.jpg"
-              alt=""
-              onClick={() => handleColorSelection("red oak")}
-            />
-            <p>color: {selectedColor}</p>
-          </div>
-          <p className="product-price">${product.price}</p>
-          <div className="size-container">
-            <p className="product-size">size:{product.size}</p>
-            <p className="product-custom" onClick={openCustomModal}>
-              custom
-            </p>
-          </div>
-          {isCustomModalOpen && (
-            <div className="custom-modal-overlay" onClick={handleOverlayClick}>
-              <CustomModal onClose={closeCustomModal} />
+            <p className="text-2xl pb-2 ">{product.price}$</p>
+            <div className=" flex w-14 gap-2 ">
+              <img
+                className={`color ${
+                  selectedColor === "oak" ? "selected" : ""
+                } rounded-full w-12 h-12 `}
+                src="/icons/variant.jpg"
+                alt=""
+                onClick={() => handleColorSelection("normal")}
+              />
+              <img
+                className={`color ${
+                  selectedColor === "red oak" ? "selected" : ""
+                }  rounded-full  w-12 h-12 `}
+                src="/icons/variant2.jpg"
+                alt=""
+                onClick={() => handleColorSelection("red oak")}
+              />
+              <p className="text-lg text-center p-2">color:{selectedColor}</p>
             </div>
-          )}
-          <div className="quantity-selector">
-            <label>quantity:</label>
-            <button onClick={decrementQuantity}>-</button>
-            <div className="quantity-container">
-              <span>{selectedQuantity}</span>
+            <div className="  flex gap-4 pt-2 items-center">
+              <p className="text-sm font-normal text-gray-800 cursor-pointer bg-gray-300 px-2 pt-2 pb-2 rounded-md  transition ease-in ">
+                size:{product.size}
+              </p>
+              <p
+                className="text-sm font-normal text-gray-800 cursor-pointer bg-gray-300 px-10 pt-2 pb-2 rounded-md hover:bg-red-400 transition ease-in "
+                onClick={openCustomModal}
+              >
+                custom
+              </p>
             </div>
-            <button onClick={incrementQuantity}>+</button>
+            {isCustomModalOpen && (
+              <div
+                className="custom-modal-overlay"
+                onClick={handleOverlayClick}
+              >
+                <CustomModal onClose={closeCustomModal} />
+              </div>
+            )}
+            <div className=" flex  items-center py-2">
+              <label className="text-xl">quantity:</label>
+              <button
+                className="ml-2 bg-gray-300 pt-0.2 pl-3 pb-1 pr-3  rounded hover:bg-red-400 transition ease-in"
+                onClick={decrementQuantity}
+              >
+                -
+              </button>
+              <div className=" p-2">
+                <span>{selectedQuantity}</span>
+              </div>
+              <button
+                className="bg-gray-300 pt-0.2 pl-3 pb-1 pr-3 rounded hover:bg-red-400 transition ease-in"
+                onClick={incrementQuantity}
+              >
+                +
+              </button>
+            </div>
+            <AddToCartButton
+              productId={product.id}
+              selectedColor={selectedColor}
+              selectedQuantity={selectedQuantity}
+            />
           </div>
-          <AddToCartButton
-            productId={product.id}
-            selectedColor={selectedColor}
-            selectedQuantity={selectedQuantity}
-          />
         </div>
       </div>
-      <div className="model-box">
-        <div className="model-container">
-          <div className="model-box">
-            <ThreeModel
-              modelPath={product.model}
-              scale={5}
-              texturePath={product.texturePath}
-            />
-          </div>
+      <div className=" ">
+        <div className="md:w-7/12 mx-auto pl-6 pr-6  object-cover mb-6">
+          <ThreeModel
+            modelPath={product.model}
+            scale={5}
+            texturePath={product.texturePath}
+          />
         </div>
-        <div className="empty-box"></div>
       </div>
       <Footer />
     </>

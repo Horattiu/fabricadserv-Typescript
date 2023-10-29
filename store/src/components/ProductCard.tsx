@@ -6,12 +6,11 @@ import { Product } from "../Types";
 
 interface ProductCardProps {
   product: Product;
-  model: string; 
 }
 
 function ProductCard(props: ProductCardProps) {
-  const { product, model } = props; 
-//   const cart = useContext(CartContext);
+  const { product } = props;
+  //   const cart = useContext(CartContext);
   //   const productQuantity = cart.getProductQuantity(product.id);
 
   return (
@@ -27,7 +26,6 @@ function ProductCard(props: ProductCardProps) {
         <h2 className="title">{product.title}</h2>
         <p className="card-price">${product.price}</p>
         {/* Display the 'model' prop */}
-        <p className="model">Model: {model}</p>
         {/* <p className="card-size">size: {product.size}</p> */}
 
         {/* <AddToCartButton productId={product.id} /> */}

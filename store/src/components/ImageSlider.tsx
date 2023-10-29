@@ -4,26 +4,21 @@ import "../css/imageSlider.css";
 
 interface Image {
   image: string;
-  title: string;
 }
 
 function ImageSlider() {
   const images: Image[] = [
     {
       image: "/Gallery/pic1.jpg",
-      title: "Title 1",
     },
     {
       image: "/Gallery/pic2.jpg",
-      title: "Title 2",
     },
     {
       image: "/Gallery/pic3.jpg",
-      title: "Title 3",
     },
     {
       image: "/Gallery/pic4.jpg",
-      title: "Title 4",
     },
   ];
 
@@ -67,13 +62,16 @@ function ImageSlider() {
 
   return (
     <>
-      <div className="slider-text">
+      <div className="slider-text sm:text-4xl ml-10">
         <p>Digital fabrication</p>
         <p>PlyWood work</p>
         <p>3D Modeling</p>
         <div className="btn-icon-container">
-          <button className="explore-button" onClick={scrollToNextComponent}>
-            EXPLORE
+          <button
+            className="text-sm   bg-blue-700 rounded-sm px-10 pt-2 pb-2 hover:bg-blue-600 transition ease-in"
+            onClick={scrollToNextComponent}
+          >
+            explore
           </button>
         </div>
       </div>
@@ -89,9 +87,7 @@ function ImageSlider() {
               }px)`,
             }}
           >
-            <div className="card-overlay">
-              <h2 className="card-title">{image.title}</h2>
-            </div>
+            <div className="card-overlay"></div>
           </div>
         ))}
         <div className="carousel-pagination">
