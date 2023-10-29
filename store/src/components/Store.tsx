@@ -1,6 +1,4 @@
-
-
-import  { useEffect } from "react";
+import { useEffect } from "react";
 import ProductCard from "../components/ProductCard";
 import "../css/store.css";
 import AOS from "aos";
@@ -22,11 +20,7 @@ function Store() {
       <div data-aos="fade-up" className="store-container">
         {productsArray.map((product, idx) => (
           <div className="cardd" key={idx}>
-            <ProductCard
-              product={product}
-              model={product.model}
-              key={product.id}
-            />
+            <ProductCard product={product} key={product.id} />
           </div>
         ))}
       </div>

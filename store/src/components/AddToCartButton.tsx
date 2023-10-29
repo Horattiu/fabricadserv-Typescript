@@ -38,7 +38,7 @@
 // }
 
 // export default AddToCartButton;
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { CartContext } from "../CartContext";
 import "../css/addToCart.css";
 import { toast } from "react-toastify";
