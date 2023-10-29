@@ -8,7 +8,7 @@ const app = express();
 
 const corsOptions = {
   // origin: ["https://fabricadserv.netlify.app", "http://localhost:4000"],
-  origin: "http://localhost:5173", // Set the correct origin for your frontend
+  origin: "https://fabricadserv-typescript.vercel.app/", // Set the correct origin for your frontend
 };
 
 app.use(cors(corsOptions));
