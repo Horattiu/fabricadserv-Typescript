@@ -40,8 +40,8 @@ app.post("/checkout", async (req, res) => {
   const session = await stripe.checkout.sessions.create({
     line_items: lineItems,
     mode: "payment",
-    success_url: "http://localhost:4000/success",
-    cancel_url: "http://localhost:4000/cancel",
+    success_url: "https://backend-fabricad.onrender.com/success",
+    cancel_url: "https://backend-fabricad.onrender.com/cancel",
     shipping_address_collection: {
       allowed_countries: ["US", "CA", "GB", "DE", "RO"],
     },
