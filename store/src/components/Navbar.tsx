@@ -24,7 +24,7 @@ function NavbarComponent() {
 
   // Add type annotations for the checkout function
   const checkout = async () => {
-    await fetch("http://backend-fabricad.onrender.com/checkout", {
+    await fetch("https://backend-fabricad.onrender.com/checkout", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
