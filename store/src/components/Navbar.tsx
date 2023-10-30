@@ -24,7 +24,7 @@ function NavbarComponent() {
 
   // Add type annotations for the checkout function
   const checkout = async () => {
-    await fetch("https://backend-fabricad.onrender.com/checkout", {
+    await fetch("http://backend-fabricad.onrender.com/checkout", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -63,10 +63,8 @@ function NavbarComponent() {
     };
   }, [show]);
 
-  // Define the scrollToContact function
   const scrollToContact = () => {
     if (contactRef.current) {
-      // Verifică dacă secțiunea Contact există în DOM
       (contactRef.current as HTMLElement).scrollIntoView({
         behavior: "smooth",
       });
