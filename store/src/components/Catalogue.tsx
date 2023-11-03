@@ -28,7 +28,7 @@ function Category() {
       <h1
         id="catalogue"
         ref={catalogueRef}
-        className="catalogue-title text-3xl font-sans font-normal tracking-tight flex justify-center pt-10 text-gray-800 "
+        className="catalogue-title text-3xl  font-normal tracking-tight  flex justify-center pt-10 text-gray-700 "
       >
         Catalogue
       </h1>
@@ -38,7 +38,7 @@ function Category() {
             <div data-aos="fade-up" className="category">
               <img src="Category/scaun.jpg" alt="" />
               <div className="overlay">
-                <p className="name">chairs</p>
+                <p className="text-4xl font-medium text-white ">chairs</p>
               </div>
             </div>
           </Link>

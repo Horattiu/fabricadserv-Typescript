@@ -27,7 +27,7 @@ function CategoryProducts() {
                 <ProductCard
                   key={product.id}
                   product={product}
-                  // model={product.model}
+                  color={""} // model={product.model}
                 />
               ))}
             </div>

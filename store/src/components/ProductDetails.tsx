@@ -7,7 +7,8 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import CustomModal from "./CustomModal";
 import ImageStack from "./ImageStack";
-// import "../css/productDetails.css";
+import "../css/productDetails.css";
+import "../css/modelBox.css";
 
 interface Product {
   id: string;
@@ -17,7 +18,7 @@ interface Product {
   price: number;
   size: string;
   model: string;
-  texturePath: string; // Add texturePath property
+  texturePath: string;
 }
 
 interface RouteParams {
@@ -28,9 +29,9 @@ interface RouteParams {
 function ProductDetails() {
   const { productId } = useParams<RouteParams>();
   const [product, setProduct] = useState<Product | null>(null);
-  const [selectedColor, setSelectedColor] = useState("normal");
   const [selectedQuantity, setSelectedQuantity] = useState(1);
   const [isCustomModalOpen, setIsCustomModalOpen] = useState(false);
+  const [selectedColor, setSelectedColor] = useState("normal");
 
   useEffect(() => {
     const fetchedProduct = getProductData(productId ?? "");
@@ -77,37 +78,39 @@ function ProductDetails() {
   return (
     <>
       <Navbar />
-      <div className="flex flex-col gap-8 justify-center pt-10 text-gray-700 max-w-7xl mx-auto p-10 sm:flex-row  ">
+      <div className="flex  flex-col md:flex-row md:ml-20 md:mr-20 md:p-10 gap-8 justify-center  text-gray-700 p-6   sm:flex-row">
         <ImageStack images={[product.imageUrl, ...product.moreImages]} />
 
-        <div className="w-80 rounded-md  bg-gray-200 md:mx-0 flex flex-col justify-center iems-center mx-auto p-10 md:p-0 sm:p-0  ">
-          <div className=" w-60 mx-auto ">
-            <h2 className="text-3xl  font-normal ">{product.title}</h2>
+        <div className="rounded-md md:w-96 md:mx-0 flex flex-col justify-center items-center bg-gray-100 ">
+          <div className="mx-auto p-12 ">
+            <h2 className="text-3xl font-normal ">{product.title}</h2>
             <hr className="w-14 mb-2 mt-2 border-t border-gray-400" />
 
             <p className="text-2xl pb-2 ">{product.price}$</p>
-            <div className=" flex w-14 gap-2 ">
+            <div className="flex w-30 gap-2 bg-re-d ">
               <img
-                className={`color ${
-                  selectedColor === "oak" ? "selected" : ""
-                } rounded-full w-12 h-12 `}
+                className={`w-10 h-10 rounded-full hover:border ${
+                  selectedColor === "normal"
+                } `}
                 src="/icons/variant.jpg"
                 alt=""
                 onClick={() => handleColorSelection("normal")}
               />
               <img
-                className={`color ${
-                  selectedColor === "red oak" ? "selected" : ""
-                }  rounded-full  w-12 h-12 `}
+                className={` w-10 h-10 rounded-full hover:border ${
+                  selectedColor === "red finish"
+                }  `}
                 src="/icons/variant2.jpg"
                 alt=""
-                onClick={() => handleColorSelection("red oak")}
+                onClick={() => handleColorSelection("red finish")}
               />
-              <p className="text-lg text-center p-2">color:{selectedColor}</p>
+              <p className="text-lg text-center  w-40  p-2">
+                color: {selectedColor}
+              </p>
             </div>
-            <div className="  flex gap-4 pt-2 items-center">
-              <p className="text-sm font-normal text-gray-800 cursor-pointer bg-gray-300 px-2 pt-2 pb-2 rounded-md  transition ease-in ">
-                size:{product.size}
+            <div className="flex gap-2 pt-2 items-center w-full  ">
+              <p className="text-sm font-normal text-gray-800 cursor-pointer bg-gray-300 pl-2 pr-2 pt-2 pb-2 rounded-md   ">
+                size: {product.size}
               </p>
               <p
                 className="text-sm font-normal text-gray-800 cursor-pointer bg-gray-300 px-10 pt-2 pb-2 rounded-md hover:bg-red-400 transition ease-in "
@@ -124,15 +127,15 @@ function ProductDetails() {
                 <CustomModal onClose={closeCustomModal} />
               </div>
             )}
-            <div className=" flex  items-center py-2">
+            <div className="flex  items-center py-2">
               <label className="text-xl">quantity:</label>
               <button
-                className="ml-2 bg-gray-300 pt-0.2 pl-3 pb-1 pr-3  rounded hover:bg-red-400 transition ease-in"
+                className="ml-2 bg-gray-300 pt-0.2 pl-3 pb-1 pr-3 rounded hover:bg-red-400 transition ease-in"
                 onClick={decrementQuantity}
               >
                 -
               </button>
-              <div className=" p-2">
+              <div className="p-2">
                 <span>{selectedQuantity}</span>
               </div>
               <button
@@ -150,13 +153,18 @@ function ProductDetails() {
           </div>
         </div>
       </div>
-      <div className=" ">
-        <div className="md:w-7/12 mx-auto pl-6 pr-6  object-cover mb-6">
-          <ThreeModel
-            modelPath={product.model}
-            scale={5}
-            texturePath={product.texturePath}
-          />
+
+      <div className="  flex flex-col md:flex-row md:gap-8 gap-4 md:ml-20 md:mr-20  justify-center md:pt-10 md:pb-10  p-6 ">
+        <ThreeModel
+          modelPath={product.model}
+          scale={6}
+          texturePath={product.texturePath}
+        />
+        <div className="md:w-96 w-80   justify-center rounded-md ">
+          <h1 className="text-xl flex justify-center md:p-10 p-4">
+            rotate and play with the model
+          </h1>
+          <img src="/./img/view.png" alt="" className="w-20 mx-auto  " />
         </div>
       </div>
       <Footer />

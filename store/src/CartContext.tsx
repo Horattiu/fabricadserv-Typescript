@@ -1,28 +1,25 @@
 import { createContext, useState, ReactNode } from "react";
 import { getProductData } from "./ProductsStore";
 
-// Define the CartItem interface
 interface CartItem {
-  id: string; // Change the type of 'id' to string
+  id: string;
   quantity: number;
-  color: string; // You can specify the appropriate type for the color property
+  selectedColor: string;
 }
 
-// Define the CartContextType interface with type annotations
 interface CartContextType {
   items: CartItem[];
-  getProductQuantity: (id: string) => number; // Change the type of 'id' to string
+  getProductQuantity: (id: string) => number;
   addOneToCart: (
-    id: string, // Change the type of 'id' to string
+    id: string,
     quantityToAdd: number,
     selectedColor: string
   ) => void;
-  removeOneFromCart: (id: string) => void; // Change the type of 'id' to string
-  deleteFromCart: (id: string) => void; // Change the type of 'id' to string
+  removeOneFromCart: (id: string) => void;
+  deleteFromCart: (id: string) => void;
   getTotalCost: () => number;
 }
 
-// Use the defined CartContextType for createContext
 export const CartContext = createContext<CartContextType>({
   items: [],
   getProductQuantity: () => 0,
@@ -32,17 +29,13 @@ export const CartContext = createContext<CartContextType>({
   getTotalCost: () => 0,
 });
 
-// Define the CartProviderProps interface
 interface CartProviderProps {
   children: ReactNode;
 }
 
-// Modify the CartProvider function to accept CartProviderProps
 export function CartProvider({ children }: CartProviderProps) {
   const [cartProducts, setCartProducts] = useState<CartItem[]>([]);
-  
 
-  // Add type annotations for the parameters and return value of getProductQuantity
   function getProductQuantity(id: string): number {
     const quantity = cartProducts.find(
       (product) => product.id === id
@@ -55,9 +48,8 @@ export function CartProvider({ children }: CartProviderProps) {
     return quantity;
   }
 
-  // Add type annotations for the parameters of addOneToCart
   function addOneToCart(
-    id: string, // Change the type of 'id' to string
+    id: string,
     quantityToAdd: number,
     selectedColor: string
   ) {
@@ -70,7 +62,7 @@ export function CartProvider({ children }: CartProviderProps) {
         {
           id: id,
           quantity: quantityToAdd,
-          color: selectedColor,
+          selectedColor: selectedColor,
         },
       ]);
     } else {
@@ -85,9 +77,7 @@ export function CartProvider({ children }: CartProviderProps) {
     }
   }
 
-  // Add type annotations for the parameter of removeOneFromCart
   function removeOneFromCart(id: string): void {
-    // Change the type of 'id' to string
     const quantity = getProductQuantity(id);
 
     if (quantity === 1) {
@@ -103,15 +93,12 @@ export function CartProvider({ children }: CartProviderProps) {
     }
   }
 
-  // Add type annotations for the parameter of deleteFromCart
   function deleteFromCart(id: string): void {
-    // Change the type of 'id' to string
     setCartProducts((cartProducts) =>
       cartProducts.filter((currentProduct) => currentProduct.id !== id)
     );
   }
 
-  // Add type annotation for the return value of getTotalCost
   function getTotalCost(): number {
     let totalCost = 0;
     cartProducts.forEach((cartItem) => {
@@ -123,7 +110,6 @@ export function CartProvider({ children }: CartProviderProps) {
     return totalCost;
   }
 
-  // Add type annotation for contextValue
   const contextValue: CartContextType = {
     items: cartProducts,
     getProductQuantity,

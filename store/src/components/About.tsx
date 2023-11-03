@@ -1,5 +1,6 @@
 import "../css/about.css";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 function About() {
   return (
@@ -37,6 +38,7 @@ function About() {
           tortor sit amet lorem hendrerit congue. In non semper justo. Nullam ac
         </div>
       </div>
+      <Footer />
     </>
   );
 }

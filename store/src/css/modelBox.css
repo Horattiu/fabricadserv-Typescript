@@ -1,12 +1,29 @@
 .model-container {
-  position: relative;
-  object-fit: contain;
+  /* position: relative; */
+  /* object-fit: contain; */
   cursor: pointer;
-  background-color: rgb(236, 236, 236);
-  /* border: 1px solid rgb(201, 201, 201); */
-  /* width: 100%; */
-  max-width: 50rem;
+  /* max-width: 36rem; */
+  height: 30rem;
+  background: black;
   height: 40rem;
-  margin-bottom: 3rem;
-  border-radius: 10px;
+  /* background-color: rgb(214, 154, 154); */
+  /* border: 1px solid rgb(201, 201, 201); */
+  /* max-width: 36rem; */
+  /* margin-bottom: 3rem; */
+  /* border-radius: 10px; */
+  /* margin: 0 auto; */
+}
+
+@media (max-width: 30rem) {
+  /* .model-container {
+    position: relative;
+    object-fit: contain;
+    cursor: pointer;
+    background-color: rgb(236, 236, 236);
+    margin: 0 auto;
+    max-width: 20rem;
+    height: 20rem;
+    margin-bottom: 3rem;
+    border-radius: 10px;
+  } */
 }

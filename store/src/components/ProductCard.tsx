@@ -1,4 +1,3 @@
-// import { useContext } from "react";
 import { Link } from "react-router-dom";
 // import { CartContext } from "../CartContext";
 import "../css/productCard.css";
@@ -6,12 +5,11 @@ import { Product } from "../Types";
 
 interface ProductCardProps {
   product: Product;
+  color: string;
 }
 
 function ProductCard(props: ProductCardProps) {
   const { product } = props;
-  //   const cart = useContext(CartContext);
-  //   const productQuantity = cart.getProductQuantity(product.id);
 
   return (
     <div className="product-card">

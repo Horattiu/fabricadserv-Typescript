@@ -11,7 +11,7 @@ function Services() {
 
   return (
     <div className="  text-slate-800 text-sm font-normal bg-gray-100 pb-20 pt-20  mx-auto">
-      <h2 className="mx-auto flex justify-center mt-4 mb-4 gallery-title text-gray-800 text-3xl font-sans font-normal tracking-tight">
+      <h2 className="mx-auto flex justify-center mt-4 mb-4 gallery-title text-gray-700 text-3xl  font-normal tracking-tight">
         Our services
       </h2>
 

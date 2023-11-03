@@ -95,7 +95,9 @@ const ThreeModel = ({ modelPath, scale, texturePath }) => {
     };
   }, [modelPath, scale, texturePath]);
 
-  return <div className="model-container" ref={canvasRef} />;
+  return (
+    <div className="w-86 h-60 md:w-41 md:h-36  bg-gray-200" ref={canvasRef} />
+  );
 };
 
 export default React.memo(ThreeModel);

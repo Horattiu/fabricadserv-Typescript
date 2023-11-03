@@ -5,8 +5,8 @@ import { CartContext } from "../CartContext";
 import { Link } from "react-router-dom";
 import { LuShoppingCart } from "react-icons/lu";
 import { HiMenu } from "react-icons/hi";
+import { CgSpinner } from "react-icons/cg";
 
-// Define a type for the CartItem
 interface CartItem {
   id: string;
   quantity: number;
@@ -14,16 +14,19 @@ interface CartItem {
 }
 
 function NavbarComponent() {
+  const [mobile, setMobile] = useState(false);
+  const [checkoutInProgress, setCheckoutInProgress] = useState(false);
   const contactRef = useRef(null);
   const catalogueRef = useRef(null);
-  const [mobile, setMobile] = useState(false);
+
   const cart = useContext(CartContext);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  // Add type annotations for the checkout function
   const checkout = async () => {
+    setCheckoutInProgress(true);
+
     await fetch("https://backend-fabricad.onrender.com/checkout", {
       method: "POST",
       headers: {
@@ -46,7 +49,6 @@ function NavbarComponent() {
     0
   );
 
-  // Add type annotation for the handleEsc function
   useEffect(() => {
     const handleEsc = (event: KeyboardEvent) => {
       if (event.keyCode === 27) {
@@ -74,7 +76,7 @@ function NavbarComponent() {
     }
   };
 
-  // Define the scrollToContactOnLoad function
+  // e scrollToContactOnLoad function
   const scrollToContactOnLoad = () => {
     if (window.location.hash === "#contact") {
       scrollToContact();
@@ -83,7 +85,7 @@ function NavbarComponent() {
 
   useEffect(scrollToContactOnLoad, []);
 
-  // Define the scrollToCatalogue function
+  // scrollToCatalogue function
   const scrollToCatalogue = () => {
     if (catalogueRef.current) {
       (catalogueRef.current as HTMLElement).scrollIntoView({
@@ -95,7 +97,7 @@ function NavbarComponent() {
     }
   };
 
-  // Define the scrollToCatalogueOnLoad function
+  // e scrollToCatalogueOnLoad function
   const scrollToCatalogueOnLoad = () => {
     if (window.location.hash === "#catalogue") {
       scrollToCatalogue();
@@ -128,7 +130,7 @@ function NavbarComponent() {
             </Link>
           </li>
           <div
-            className="navbar-button flex text-gray-800 text-sm items-center gap-1 rounded-sm bg-gray-300 "
+            className="hover:bg-red-400 px-4 pt-1 pb-1 cursor-pointer flex text-gray-800 text-sm items-center gap-1 rounded-md bg-gray-300 "
             onClick={handleShow}
           >
             <LuShoppingCart className="cart-icon" /> ({productsCount}) cart
@@ -162,17 +164,28 @@ function NavbarComponent() {
                       key={idx}
                       id={currentProduct.id}
                       quantity={currentProduct.quantity}
-                      selectedColor={
-                        currentProduct.selectedColor || "defaultColor"
-                      } // Provide a default value
+                      selectedColor={currentProduct.selectedColor || "normal"}
                     ></CartProduct>
                   ))}
-                  <h1 className="total">
+                  <h1 className="p-4 text-xl">
                     Total: {cart.getTotalCost().toFixed(2)}
                   </h1>
-                  <button className="modal-button" onClick={checkout}>
-                    Checkout
-                  </button>
+                  {checkoutInProgress ? (
+                    <button
+                      type="button"
+                      className="bg-blue-500 flex items-center justify-center mx-auto px-4 pb-2 pt-2 gap-2 rounded-md text-white"
+                    >
+                      Processing
+                      <CgSpinner className="h-6 w-6  animate-spin" />
+                    </button>
+                  ) : (
+                    <button
+                      className="px-4 pt-2 pb-2 bg-blue-500 rounded-md text-white hover:bg-blue-700"
+                      onClick={checkout}
+                    >
+                      Checkout
+                    </button>
+                  )}
                 </>
               ) : (
                 <div>

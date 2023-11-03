@@ -1,4 +1,4 @@
-// Define the Product interface
+//  interface
 interface Product {
   id: string;
   category: string;
@@ -9,9 +9,9 @@ interface Product {
   texturePath: string;
   size: string;
   moreImages: string[];
+  colors: string[]; // Add an array of available colors
 }
 
-// Create an array of products with type annotations
 const productsArray: Product[] = [
   {
     id: "price_1NQZAYKeASpJmZ80DtPpaXwe",
@@ -27,6 +27,7 @@ const productsArray: Product[] = [
       "/Gallery/pic4.jpg",
       // Add more image URLs here
     ],
+    colors: ["normal", "red finish"], // Add an array of available colors
   },
   {
     id: "price_1NQZAYKeASpJmZ80DtPpaXwe",
@@ -37,11 +38,8 @@ const productsArray: Product[] = [
     model: "/model/scene.gltf",
     texturePath: "",
     size: "20 x 60",
-    moreImages: [
-      "/Gallery/pic2.jpg",
-      "/Gallery/pic4.jpg",
-      // Add more image URLs here
-    ],
+    moreImages: ["/Gallery/pic2.jpg", "/Gallery/pic4.jpg"],
+    colors: ["normal", "red finish"], // Add an array of available colors
   },
   {
     id: "price_1NQZPCKeASpJmZ80zmUGBPRp",
@@ -53,6 +51,7 @@ const productsArray: Product[] = [
     texturePath: "",
     size: "80 x 200",
     moreImages: ["/Gallery/pic2.jpg", "/Gallery/pic4.jpg"],
+    colors: ["normal", "red finish"], // Add an array of available colors
   },
   {
     id: "price_1NQZPCKeASpJmZ80zmUGBPRp",
@@ -64,6 +63,7 @@ const productsArray: Product[] = [
     texturePath: "",
     size: "80 x 200",
     moreImages: ["/Gallery/pic2.jpg", "/Gallery/pic4.jpg"],
+    colors: ["normal", "red finish"], // Add an array of available colors
   },
   {
     id: "price_1NQZSkKeASpJmZ80zUzbejyO",
@@ -75,6 +75,7 @@ const productsArray: Product[] = [
     texturePath: "",
     size: "100 x 400",
     moreImages: ["/Gallery/pic2.jpg", "/Gallery/pic4.jpg"],
+    colors: ["normal", "red finish"], // Add an array of available colors
   },
   {
     id: "price_1NxTG6KeASpJmZ80Kb7u8uOP",
@@ -86,6 +87,7 @@ const productsArray: Product[] = [
     texturePath: "",
     size: "100 x 400",
     moreImages: ["/Gallery/pic2.jpg", "/Gallery/pic4.jpg"],
+    colors: ["normal", "red finish"], // Add an array of available colors
   },
   {
     id: "price_1NyKUHKeASpJmZ80MyOVo46c",
@@ -97,6 +99,7 @@ const productsArray: Product[] = [
     texturePath: "",
     size: "100 x 400",
     moreImages: ["/Gallery/pic2.jpg", "/Gallery/pic4.jpg"],
+    colors: ["normal", "red finish"], // Add an array of available colors
   },
 ];
 

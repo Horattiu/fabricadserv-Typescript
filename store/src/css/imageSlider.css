@@ -36,8 +36,7 @@
   background-position: center;
 }
 
-.card-overlay {
-}
+
 
 .slider-text {
   position: absolute;
@@ -110,6 +109,5 @@
     font-size: 2rem;
   }
 
-  .carousel-card {
-  }
+ 
 }

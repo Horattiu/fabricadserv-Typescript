@@ -1,21 +1,20 @@
+import { BsInstagram } from "react-icons/bs";
+import { FaFacebookSquare } from "react-icons/fa";
+
 const Footer = () => {
   return (
-    <footer className="flex flex-col sm:flex-row  justify-center gap-8 bg-red-500 p-10 text-slate-100">
+    <footer className="flex flex-col sm:flex-row  justify-center gap-8 bg-red-500 p-10 text-slate-100 mt-auto">
       <div className="">
         <h1 className=" text-2xl pb-1 font-bold ">Fabricad</h1>
-        <ul>
+        <ul className="flex gap-4">
           <li className="">
-            {/* <ion-icon
-                a
-                href="https://m.facebook.com/fabricad.serv/?_rdr"
-                name="logo-facebook"
-              ></ion-icon> */}
+            <BsInstagram className="cursor-pointer text-2xl	" />
           </li>
           <li className="">
-            {/* <ion-icon name="logo-instagram"></ion-icon> */}
+            <FaFacebookSquare className="cursor-pointer text-2xl	" />
           </li>
         </ul>
-        <p className="">copyright@2023 by fabricadserv</p>
+        <p className="">@2023 by fabricadserv</p>
       </div>
 
       <div className="w-60">

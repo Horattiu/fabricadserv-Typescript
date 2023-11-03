@@ -5,8 +5,8 @@ export interface CartItem {
 }
 
 export interface Product {
-    id: string;
-    title: string;
-    imageUrl: string;
-    price: number;
-  }
+  id: string;
+  title: string;
+  imageUrl: string;
+  price: number;
+}

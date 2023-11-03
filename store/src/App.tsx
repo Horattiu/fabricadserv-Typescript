@@ -24,7 +24,7 @@ function App() {
           element={<ProductDetails />}
         />
       </Routes>
-      <ToastContainer autoClose={2000} /> {/* 3000ms = 3 seconds */}
+      <ToastContainer autoClose={900} />
     </CartProvider>
   );
 }

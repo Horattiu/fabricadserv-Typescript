@@ -109,8 +109,11 @@ export const Contact = () => {
 
   return (
     <>
-      <div className="text-center p-10 flex flex-col justify-center gap-4">
-        <h1 className="text-xl text-gray-800  font-sans font-normal tracking-tighter">
+      <div
+        id="contact"
+        className="text-center p-10 flex flex-col justify-center gap-4"
+      >
+        <h1 className="text-2xl text-gray-800   font-normal tracking-tight">
           Drop a line!{" "}
         </h1>
         <img
@@ -119,11 +122,13 @@ export const Contact = () => {
           className="w-16 dark:invert mx-auto"
         />
       </div>
-      <form onSubmit={sendEmail} className="px-10 lg:p-0 max-w-md mx-auto ">
+      <form
+        onSubmit={sendEmail}
+        className="px-10 lg:p-0 max-w-md mx-auto mb-12 "
+      >
         <div className="mb-4">
           <input
             className="dark:invert rounded-xl w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-200"
-            // className="shadow-md border border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="text"
             name="user_name"
             placeholder="name"
@@ -139,7 +144,7 @@ export const Contact = () => {
         </div>
         <div className="mb-6">
           <textarea
-            className="dark:invert rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-200"
+            className="dark:invert rounded-xl w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-200"
             name="message"
             placeholder="message..."
           ></textarea>
