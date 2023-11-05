@@ -6,17 +6,12 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 const app = express();
 
-// const corsOptions = {
-//   // origin: ["https://fabricadserv.netlify.app", "http://localhost:4000"],
-//   origin: "https://fabricadserv-typescript.vercel.app", // Set the correct origin for your frontend
-// };
-
 // app.use(cors(corsOptions));
 const corsOptions = {
-  origin: "https://fabricadserv-typescript.vercel.app", // Set the correct origin for your frontend
+  origin: "https://fabricadserv.vercel.app",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
-  optionsSuccessStatus: 204, // Some legacy browsers (IE) choke on 204
+  optionsSuccessStatus: 204,
 };
 
 app.use(cors(corsOptions));
