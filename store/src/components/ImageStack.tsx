@@ -52,7 +52,6 @@
 import { useState } from "react";
 import { BsFillArrowLeftCircleFill } from "react-icons/bs";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
-// import "../css/imageStack.css";
 
 interface ImageStackProps {
   images: string[];
@@ -84,14 +83,12 @@ function ImageStack({ images }: ImageStackProps) {
   return (
     <div className="bg-red-900 md:w-41 relative ">
       <img src={currentImage} alt="Product" className="w-41 h-auto" />
-      {/* <button className="prev-button" onClick={handlePreviousImage}> */}
       <BsFillArrowLeftCircleFill
-        className="absolute top-20 w-10 h-10 text-white left-0"
+        className="absolute top-20 w-10 h-10 text-white left-2 transform scale-100 hover:scale-110 transition-transform"
         onClick={handlePreviousImage}
       />
-      {/* </button> */}
       <BsFillArrowRightCircleFill
-        className="absolute top-20 w-10 h-10 text-white  right-0"
+        className="absolute top-20 w-10 h-10 text-white  right-2 transform scale-100 hover:scale-110 transition-transform"
         onClick={handleNextImage}
       />
     </div>

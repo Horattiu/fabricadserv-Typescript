@@ -5,7 +5,7 @@ import { Product } from "../Types";
 
 interface ProductCardProps {
   product: Product;
-  color: string;
+  color?: string;
 }
 
 function ProductCard(props: ProductCardProps) {

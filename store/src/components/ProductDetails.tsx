@@ -87,7 +87,7 @@ function ProductDetails() {
             <hr className="w-14 mb-2 mt-2 border-t border-gray-400" />
 
             <p className="text-2xl pb-2 ">{product.price}$</p>
-            <div className="flex w-30 gap-2 bg-re-d ">
+            <div className="flex w-30 gap-2 ">
               <img
                 className={`w-10 h-10 rounded-full hover:border ${
                   selectedColor === "normal"
@@ -104,20 +104,20 @@ function ProductDetails() {
                 alt=""
                 onClick={() => handleColorSelection("red finish")}
               />
-              <p className="text-lg text-center  w-40  p-2">
-                color: {selectedColor}
-              </p>
             </div>
-            <div className="flex gap-2 pt-2 items-center w-full  ">
-              <p className="text-sm font-normal text-gray-800 cursor-pointer bg-gray-300 pl-2 pr-2 pt-2 pb-2 rounded-md   ">
+            <p className="text-sm w-40 pt-2  text-start">
+              color: {selectedColor}
+            </p>
+            <div className="flex  flex-col gap-2 pt-2    ">
+              <p className="text-sm font-normal text-gray-800 text-start   rounded-md   ">
                 size: {product.size}
               </p>
-              <p
-                className="text-sm font-normal text-gray-800 cursor-pointer bg-gray-300 px-10 pt-2 pb-2 rounded-md hover:bg-red-400 transition ease-in "
+              <div
+                className="text-sm font-normal  text-center text-gray-800 cursor-pointer bg-gray-300  pt-2 pb-2  w-24  rounded-md hover:bg-red-400 transition ease-in "
                 onClick={openCustomModal}
               >
                 custom
-              </p>
+              </div>
             </div>
             {isCustomModalOpen && (
               <div
@@ -128,7 +128,7 @@ function ProductDetails() {
               </div>
             )}
             <div className="flex  items-center py-2">
-              <label className="text-xl">quantity:</label>
+              <label className="text-sm">quantity:</label>
               <button
                 className="ml-2 bg-gray-300 pt-0.2 pl-3 pb-1 pr-3 rounded hover:bg-red-400 transition ease-in"
                 onClick={decrementQuantity}
