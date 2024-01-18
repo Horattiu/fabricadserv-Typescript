@@ -12,17 +12,12 @@ function Category() {
     });
   }, []);
 
-  const catalogueRef = useRef<HTMLHeadingElement | null>(null); // Add type annotation
+  const catalogueRef = useRef<HTMLHeadingElement | null>(null);
 
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
 
-  //   const scrollToCatalogue = () => {
-  //     if (window.location.hash === "#catalogue") {
-  //       window.scrollTo(0, 0);
-  //     }
-  //   };
   return (
     <>
       <h1

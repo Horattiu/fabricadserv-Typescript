@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-// import { CartContext } from "../CartContext";
 import "../css/productCard.css";
 import { Product } from "../Types";
 
@@ -23,10 +22,7 @@ function ProductCard(props: ProductCardProps) {
         </Link>
         <h2 className="title">{product.title}</h2>
         <p className="card-price">${product.price}</p>
-        {/* Display the 'model' prop */}
-        {/* <p className="card-size">size: {product.size}</p> */}
-
-        {/* <AddToCartButton productId={product.id} /> */}
+     
         <Link to={`/product-details/${product.id}`}>
           <button className="details-button">Details</button>
         </Link>

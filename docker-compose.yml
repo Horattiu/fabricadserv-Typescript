@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  frontend:
+    image: frontend-image
+    ports:
+      - "3000:3000"
+    environment:
+      REACT_APP_BACKEND_URL: https://backend-fabricad.onrender.com
+
+  backend:
+    image: backend-image
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env
