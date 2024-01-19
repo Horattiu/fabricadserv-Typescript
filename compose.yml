@@ -1,16 +1,20 @@
-version: "3"
+version: "3.8"
 
 services:
-  frontend:
+  web:
+    # depends_on:
+    #   -api
+
+    build: ./store
     image: horattiul/frontend-image
     ports:
-      - "4000:3000" # Change the host port to 4000 or any other available port
+      - "5173:5173"
+
     environment:
       REACT_APP_BACKEND_URL: https://backend-fabricad.onrender.com
 
-  backend:
+  api:
+    build: ./backend
     image: horattiul/backend-image
     ports:
-      - "5000:5000"
-    env_file:
-      - ./backend/.env
+      - "8000:8000"

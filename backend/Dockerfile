@@ -11,10 +11,10 @@ COPY . .
 RUN npm install
 
 # Make port 5000 available to the world outside this container
-EXPOSE 5000
+EXPOSE 8000
 
 # Define environment variable
 ENV NODE_ENV production
 
 # Run node server.js when the container launches
-CMD ["node", "server.js"]
+CMD npm start

@@ -16,10 +16,10 @@ RUN npm install
 COPY . .
 
 # Make port 3000 available to the world outside this container
-EXPOSE 3000
+EXPOSE 5173
 
 # Define environment variable
 ENV REACT_APP_BACKEND_URL https://backend-fabricad.onrender.com
 
 # Run app when the container launches
-CMD ["npm", "start"]
+CMD npm run dev

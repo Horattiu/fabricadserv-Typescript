@@ -8,7 +8,7 @@ const app = express();
 
 // app.use(cors(corsOptions));
 const corsOptions = {
-  origin: "https://fabricadserv.vercel.app",
+  origin: ["https://fabricadserv.vercel.app", "http://localhost:5173"],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
   optionsSuccessStatus: 204,
