@@ -1,20 +1,25 @@
+# Dockerfile-frontend
+
 # Use an official Node runtime as a parent image
 FROM node:20-alpine
 
-# Set the working directory to /app
+# Set the working directory
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app/frontend
-COPY . .
+# Copy package.json and package-lock.json to the working directory
+COPY package*.json ./
 
 # Install any needed packages specified in package.json
 RUN npm install
+
+# Copy the rest of the application code
+COPY . .
 
 # Make port 3000 available to the world outside this container
 EXPOSE 3000
 
 # Define environment variable
-ENV NODE_ENV production
+ENV REACT_APP_BACKEND_URL https://backend-fabricad.onrender.com
 
-# Run npm start when the container launches
+# Run app when the container launches
 CMD ["npm", "start"]
