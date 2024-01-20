@@ -2,8 +2,8 @@ version: "3.8"
 
 services:
   web:
-    # depends_on:
-    #   -api
+    depends_on:
+      - api
 
     build: ./store
     image: horattiul/frontend-image
@@ -11,7 +11,7 @@ services:
       - "5173:5173"
 
     environment:
-      REACT_APP_BACKEND_URL: https://backend-fabricad.onrender.com
+      VITE_API_URL: http://api:8000
 
   api:
     build: ./backend
