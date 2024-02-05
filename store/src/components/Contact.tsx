@@ -81,8 +81,18 @@
 
 import { useRef, RefObject } from "react";
 import emailjs from "@emailjs/browser";
+import Aos from "aos";
+import { useEffect } from "react";
+
 
 export const Contact = () => {
+
+  useEffect(() => {
+    Aos.init({
+      duration: 550,
+    });
+  }, []);
+  
   const form: RefObject<HTMLFormElement | null> = useRef(null);
 
   const sendEmail = (e: React.FormEvent) => {
@@ -90,11 +100,11 @@ export const Contact = () => {
 
     if (form.current) {
       emailjs
-        .sendForm(
-          "YOUR_SERVICE_ID",
-          "YOUR_TEMPLATE_ID",
-          form.current,
-          "YOUR_PUBLIC_KEY"
+      .sendForm(
+                   "service_npwzn1n",
+                   "template_lb7ddhi",
+                   form.current,
+                   "DpwFpJCd-Pru5--Nt"
         )
         .then(
           (result) => {
@@ -110,6 +120,7 @@ export const Contact = () => {
   return (
     <>
       <div
+      data-aos='fade-up'
         id="contact"
         className="text-center p-10 flex flex-col justify-center gap-4"
       >
@@ -119,16 +130,18 @@ export const Contact = () => {
         <img
           src="./img/message.png"
           alt=""
-          className="w-16 dark:invert mx-auto"
+          className="w-16  mx-auto"
         />
       </div>
       <form
+            data-aos='fade-up'
+
         onSubmit={sendEmail}
         className="px-10 lg:p-0 max-w-md mx-auto mb-12 "
       >
         <div className="mb-4">
           <input
-            className="dark:invert rounded-xl w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-200"
+            className=" rounded-xl w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-200"
             type="text"
             name="user_name"
             placeholder="name"
@@ -136,7 +149,7 @@ export const Contact = () => {
         </div>
         <div className="mb-4">
           <input
-            className="dark:invert rounded-xl w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-200"
+            className="rounded-xl w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-200"
             type="email"
             name="user_email"
             placeholder="email address"
@@ -144,7 +157,7 @@ export const Contact = () => {
         </div>
         <div className="mb-6">
           <textarea
-            className="dark:invert rounded-xl w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-200"
+            className=" rounded-xl w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-200"
             name="message"
             placeholder="message..."
           ></textarea>

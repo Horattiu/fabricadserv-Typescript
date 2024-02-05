@@ -5,18 +5,18 @@ import Aos from "aos";
 function Services() {
   useEffect(() => {
     Aos.init({
-      duration: 500,
+      duration: 800,
     });
   }, []);
 
   return (
-    <div className="  text-slate-800 text-sm font-normal bg-gray-100 pb-20 pt-20  mx-auto">
+    <div       data-aos='fade-up'
+     className="  text-slate-800 text-sm font-normal bg-gray-100 pb-20 pt-20  mx-auto">
       <h2 className="mx-auto flex justify-center mt-4 mb-4 gallery-title text-gray-700 text-3xl  font-normal tracking-tight">
         Our services
       </h2>
 
       <div
-        data-aos="fade-up"
         className="grid md:grid-cols-4	mt-20 text-xl grid-cols-2 gap-8 w-10/12 mx-auto   "
       >
         <div className=" justify-center flex flex-col items-center mx-auto w-40  ">

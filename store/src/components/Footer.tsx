@@ -3,7 +3,7 @@ import { FaFacebookSquare } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="flex flex-col sm:flex-row  justify-center gap-8 bg-red-500 p-10 text-slate-100 mt-auto">
+    <footer className="flex flex-col  sm:flex-row  justify-center gap-8 bg-[#ef3e4a] p-10 text-slate-100 mt-auto">
       <div className="">
         <h1 className=" text-2xl pb-1 font-bold ">Fabricad</h1>
         <ul className="flex gap-4">
